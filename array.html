@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array - WPU</title>
+</head>
+<body>
+
+    <h1>Studi Kasus Array - WPU</h1>
+    <h3>Silahkan Menuju Console</h3>
+    
+    <script>
+
+        let penumpang = [];
+
+        const tambahPenumpang = function (nama, penumpang) {
+            if (penumpang.length == 0) {
+                penumpang.push(nama);
+                return penumpang;
+            } else {
+                for (let i = 0; i < penumpang.length; i++) {
+                    if (penumpang[i] == undefined) {
+                        penumpang[i] = nama;
+                        return penumpang;
+                    } else if (penumpang[i] === nama || penumpang[i] === undefined) {
+                        console.log("sudah ada");
+                        return penumpang;
+                    } else if (i == penumpang.length - 1) {
+                        penumpang.push(nama);
+                        return penumpang;
+                    };
+                };
+            };
+        };
+
+        const hapusPenumpang = function (nama, penumpang) {
+            if(penumpang.length == 0) {
+                console.info("Kosong");
+                return penumpang;
+            } else {
+                for (let i = 0; i < penumpang.length; i++) {
+                    if (penumpang[i] == nama) {
+                        penumpang[i] = undefined;
+                        return penumpang;
+                    } else if(i == penumpang.length - 1) {
+                        console.info("tidak ada didalam");
+                        return penumpang;
+                    };
+                };
+            };
+        };
+
+    </script>
+
+</body>
+</html>

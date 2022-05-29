@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Literals</title>
+</head>
+<body>
+
+    <script>
+
+        // Looping
+        /*
+        const mhs = [
+            {
+                nama: "Sandhika Galih",
+                email: "sandhika@gmail.com"
+            },
+            {
+                nama: "Doddy",
+                email: "doddy@gmail.com"
+            },
+            {
+                nama: "Erick",
+                email: "erick@gmail.com"
+            }
+        ]
+
+        const result = `<div class:"mhs">
+            ${mhs.map((item) => 
+                `<ul>
+                    <li>${item.nama}</li>
+                    <li>${item.email}</li>
+                </ul>`).join("")}
+            </div>`
+
+        */
+
+
+        
+        // Conditionals
+        /*
+        const lagu = {
+            judul: "Tetap dalam jiwa",
+            penyanyi: "Isyana",
+            feat: "Rayi"
+        }
+
+        const result = `<div class="mhs">
+            <ul>
+                <li>${lagu.judul}</li>
+                <li>${lagu.penyanyi} ${lagu.feat ? `(feat ${lagu.feat})` : ""}</li>
+            </ul>
+            </div>`
+        */
+            
+        
+        
+        // Nested
+        const mhs = {
+            nama: "Sandhika Galih",
+            semester: 5,
+            matkul: ["Rekayasa Web",
+                "Analisi Dan Perancangan Sistem Informasi",
+                "Pemrograman Sistem Iteraktif",
+                "Perancangan Sistem Berorientasi Object"
+            ]
+        }
+
+        const result = `<div class:"mhs">
+            <h1>${mhs.nama}</h1>
+            <span class:"semester">Semester ${mhs.semester}</span>
+            <h4>Mata Kuliah: </h4>
+            <ol>
+                ${mhs.matkul.map(m => `<li>${m}</li>`).join("")}
+            </ol>
+            
+            </div>`
+
+        document.body.innerHTML = result;
+        
+
+
+    </script>
+    
+</body>
+</html>

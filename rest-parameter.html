@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Parameter</title>
+</head>
+<body>
+
+    <script>
+
+        // Rest Parameter
+        {
+            function jumlahkan(...numbers) {
+                // let total = 0;
+                // for (const number of numbers) {
+                //     total += number;
+                // }
+                // return total;
+
+                return numbers.reduce((total, number) => total + number, 0);
+            }
+
+            console.log(jumlahkan(1,2,3,4,5));
+        }
+
+        {
+            // Array Desctructuring
+            const kelompok1 = ["Sandhika", "Doddy", "Erick", "Fajar", "Hendra"];
+            const [ketua, wakil, ...anggota] = kelompok1;
+
+            console.log(ketua);
+            console.log(wakil);
+            console.log(anggota);
+        }
+
+        {
+            // Object Desctructuring
+            const team = {
+                pm: "Sandhika",
+                frontEnd1: "Doddy",
+                frontEnd2: "Erick",
+                backEnd: "Fajar",
+                ux: "Hendra",
+                devops: "Ferry"
+            }
+
+            const {pm, ...myTeam} = team;
+            console.log(pm);
+            console.log(myTeam);
+        }
+
+        {
+            // Filtering
+            function filter(type, ...values) {
+                return values.filter((value) => typeof value === type);
+            }
+
+            console.log(filter("number", 8, "edo", true, 5, "edi", 3, "ado", 5, false));
+        }
+
+    </script>
+    
+</body>
+</html>

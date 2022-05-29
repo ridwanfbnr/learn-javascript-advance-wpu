@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desctructuring Function</title>
+</head>
+<body>
+
+    <script>
+
+        // Desctructuring Function
+        {
+            // Desctructuring return value array
+            function kalkulasi(a, b) {
+                return [a + b, a - b, a * b];
+            }
+
+            const [jumlah, kurang, kali] = kalkulasi(3, 3);
+
+            console.log(jumlah, kurang, kali);
+        }
+
+        {
+            // Desctructuring return value object
+            function kalkulasi(a, b) {
+                return {
+                    jumlah: a + b,
+                    kurang: a - b,
+                    kali: a * b
+                }
+            }
+
+            const {kali, kurang, jumlah} = kalkulasi(4, 4);
+            console.log(jumlah);
+            console.log(kurang);
+            console.log(kali);
+        }
+
+        {
+            // Desctructuring function arguments
+            const person = {
+                name: "Ridwan Febnur",
+                age: 20,
+                email: "ridwan@gmail.com",
+                nilai: {
+                    tugas: 80,
+                    uts: 85,
+                    uas: 90
+                }
+            };
+
+            function resultPerson( {name, age, email, nilai: {tugas,uts,uas}} ) {
+                return `Hallo, nama saya ${name}, saya berumur ${age}, dan nilai UTS saya adalah ${uts}`;
+            }
+
+            console.log(resultPerson(person));
+        }
+
+    </script>
+    
+</body>
+</html>

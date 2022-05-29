@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desctructuring</title>
+</head>
+<body>
+
+    <script>
+
+    {
+        // Desctructuring Array
+        {
+            const perkenalan = ["hallo", "Ridwan", "Febnur", "Asri Redinda"];
+
+            // const [salam, firstName, middleName, lastName] = perkenalan;
+
+            // skipping items
+            const [, firstName, , lastName] = perkenalan;
+
+            console.log(firstName);
+            console.log(lastName);
+        }
+
+        {
+            // Swap items
+            let a = 1;
+            let b = 2;
+            console.log(a);
+            console.log(b);
+
+            [a, b] = [b, a];
+            console.log(a);
+            console.log(b);
+        }
+
+        {
+            // Return value pada function
+            function coba() {
+                return ["Ridwan", "Febnur"];
+            }
+
+            const [firstName, lastName] = coba();
+            console.log(firstName);
+            console.log(lastName);
+        }
+
+        {
+            // Rest Parameter
+            const numbers = [1, 2, 3, 4, 5];
+
+            const [a, b, ...others] = numbers;
+            console.log(a);
+            console.log(b);
+            console.log(others);
+            console.log(others[1]);
+        }
+    }
+
+    {
+        // Desctructuring Object
+        {
+            const mhs = {
+                nama: "Ridwan Febnur",
+                umur: 20
+            }
+
+            const {nama, umur} = mhs;
+
+            console.log(`Hallo Nama Saya ${nama} dan Umur Saya ${umur} Tahun`);
+        }
+
+        {
+            // Assignment tanpa deklarasi object
+            ( {nama, umur} = {nama: "Ridwan Febnur", umur: 20} ); // tambahkan tanda () diawal
+
+            console.log(`Hallo Nama Saya ${nama} dan Umur Saya ${umur} Tahun`);
+        }
+
+        {
+            // Assign ke variable baru
+            const person = {
+                firstName: "Ridwan",
+                lastName: "Febnur",
+                age: 20
+            }
+
+            const {
+                firstName: namaDepan,
+                lastName: namaBelakang,
+                age: umur
+            } = person;
+
+            console.log(namaDepan);
+            console.log(namaBelakang);
+        }
+
+        {
+            // Memberi nilai default dan assign ke variable baru
+            const person = {
+                firstName: "Ridwan",
+                middleName: "Febnur",
+                age: 20
+            }
+
+            const {
+                firstName: namaDepan = "Ridwan 2", // tidak tertimpa, karna default value nya di dalam array
+                middleName: namaTengah,
+                lastName: namaBelakang = "AR",
+                age: umur
+            } = person;
+
+            console.log(namaDepan);
+            console.log(namaTengah);
+            console.log(namaBelakang);
+        }
+
+        {
+            // Rest Parameter
+            const person = {
+                fullName: "Ridwan Febnur",
+                age: 20,
+                address: "Indonesia",
+                hobby: "Gaming"
+            }
+
+            const {fullName, ...others} = person;
+
+            console.log(fullName);
+            console.log(others);
+            console.log(others.age);
+            console.log(others.address);
+            console.log(others.hobby);
+        }
+
+        {
+            // Mengambil field pada object, setelah dikirim parameter untuk function
+            const person = {
+                id: 123,
+                name: "Ridwan",
+                address: "Indonesia",
+                hobby: "Gaming"
+            }
+
+            function getId( {id} ) {
+                return id;
+            }
+
+            function getName( {name} ) {
+                return name;
+            }
+
+            console.log(getId(person));
+            console.log(getName(person));
+        }
+
+    }
+
+    </script>
+    
+</body>
+</html>

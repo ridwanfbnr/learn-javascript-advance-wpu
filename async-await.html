@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await</title>
+</head>
+<body>
+
+    <script>
+
+    
+
+        function cobaPromise() {
+            return new Promise(function(resolve, reject) {
+                const waktu = 4000;
+                if (waktu < 5000) {
+                    setTimeout(() => {
+                        resolve("Selesai")
+                    }, waktu);
+                } else {
+                    reject("Kelamaan!")
+                };
+            });
+        };
+
+        async function cobaAsync() {
+            try {
+                const coba = await cobaPromise();
+                console.log(coba)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        cobaAsync();
+
+        cobaPromise()
+            .then((coba) => console.log(coba))
+            .catch((error) => console.log(error))
+
+
+        
+        let s = ""
+        for (let x = 1; x <= 5; x++) {
+            for (let h = 1; h <= 5 - x; h++) {
+                s += " "
+            }
+                for (let y = 0; y < 2 * x - 1; y++) {
+                    s += "*"
+                }
+            s += "\n"
+        }
+        console.log(s);
+        
+
+
+    </script>
+    
+</body>
+</html>

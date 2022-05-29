@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+</head>
+<body>
+
+    <script>
+
+        // Callback
+        function getDataMahasiswa(url, success, error) {
+            let xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        success(xhr.response);
+                    } else {
+                        error();
+                    };
+                }
+            }
+
+            xhr.open('GET', url);
+            xhr.send();
+        }
+
+        console.log("mulai")
+
+        const success = (result) => {
+            const mhs = JSON.parse(result);
+            mhs.forEach((m) => console.log(m.nama));
+        };
+
+        const error = (e) => {
+            console.log(e);
+        }
+
+        getDataMahasiswa("api/mahasiswa.json", success, error);
+
+        console.log("selesai")
+
+    </script>
+    
+</body>
+</html>

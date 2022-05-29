@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Of</title>
+</head>
+<body>
+
+    <ul>
+        <li class="nama">Sandhika</li>
+        <li class="nama">Doddy</li>
+        <li class="nama">Erick</li>
+    </ul>
+
+    <script>
+
+        {   
+            // For Of Array
+            {   
+                const mahasiswa = ["Sandhika", "Doddy", "Erick"];
+
+                // for (let i = 0; i < mahasiswa.length; i++) {
+                //     console.log(mahasiswa[i]);
+                // }
+
+                // mahasiswa.forEach((m) => console.log(m));
+
+                for (const person of mahasiswa) {
+                    console.log(person);
+                }
+            }
+
+            {
+                const mahasiswa = ["Sandhika", "Doddy", "Erick"];
+
+                // Pakai forEach
+                mahasiswa.forEach((m, i) => {
+                    console.log(`${m} adalah mahasiswa ke ${i + 1}`);
+                });
+
+                // Pakai For Of
+                for (const [i, person] of mahasiswa.entries()) {
+                    console.log(`${person} adalah mahasiswa ke ${i + 1}`);
+                }
+            }
+        }
+
+        {
+            // For Of String
+            const persons = "Ridwan";
+
+            for (const person of persons) {
+                console.log(person);
+            }
+        }
+
+        {
+            // NodeList
+            const liNama = document.querySelectorAll(".nama");
+
+            // Pakai forEach
+            liNama.forEach((nama) => console.log(nama.textContent));
+
+            // Pakai For Of
+            for (const nama of liNama) {
+                console.log(nama.textContent);
+            }
+        }
+
+        {
+            // Arguments
+            function kalkulasi() {
+                let result = 0;
+                for (const number of arguments) {
+                    result += number;
+                }
+                return result;
+            }
+
+            console.log(kalkulasi(1, 2, 3, 4, 5))
+        }
+
+        
+    </script>
+    
+</body>
+</html>

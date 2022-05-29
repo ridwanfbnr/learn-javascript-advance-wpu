@@ -1,0 +1,23 @@
+[
+    {
+        "nama": "Ridwan Febnur",
+        "nrp": "021123",
+        "email": "ridwan@gmail.com",
+        "jurusan": "Teknik Informatika",
+        "id": 1
+    },
+    {
+        "nama": "Ryan Hesriana",
+        "nrp": "021124",
+        "email": "ryan@gmail.com",
+        "jurusan": "Teknik Elektro",
+        "id": 2
+    },
+    {
+        "nama": "Raka Dzakwan",
+        "nrp": "021125",
+        "email": "raka@gmail.com",
+        "jurusan": "Hukum",
+        "id": 3
+    }
+]

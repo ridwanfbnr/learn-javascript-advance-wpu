@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+            Menurut Mozilla atau MDN
+            "Closure merupakan kombinasi antara function dan lingkungan leksikal (lexical scope)
+            di dalam function tersebut"
+
+
+            Menurut w3school
+            "Closure adalah sebuah function ketika memiliki akses ke parent scope nya, meskipun
+            parent scope nya sudah selesai dieksekusi"
+
+
+            Menurut Code Fellow
+            "Closure adalah sebuah function dikembalikan oleh function yang lain, yang memiliki
+            akses ke lingkungan saat ia diciptakan"
+
+
+            Menurut Techsith
+            "Closure adalah sebuah function yang sebelumnya sudah memiliki data, hasil dari
+            function yang lain"
+        */
+
+        function ucapanSalam(waktu) {
+            function person(name) {
+                console.info(`Hello ${name}, Selamat ${waktu}`);
+            }
+            return person;
+        }
+
+        let person1 = ucapanSalam("Pagi");
+        let person2 = ucapanSalam("Siang");
+        let person3 = ucapanSalam("Sore");
+
+        person1("Ridwan");
+        person2("Febnur");
+        person3("Asri");
+
+    </script>
+    
+</body>
+</html>

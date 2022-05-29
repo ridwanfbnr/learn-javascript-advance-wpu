@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype in Class</title>
+</head>
+<body>
+
+    <script>
+
+        class Mahasiswa {
+            constructor(name, energi) {
+                this.name = name;
+                this.energi = energi;
+            };
+
+            makan(porsi) {
+            this.energi += porsi;
+            return `Hallo ${this.nama}, Selamat Makan`;
+            };
+
+            main(jam) {
+                this.energi -= jam;
+                return `Hallo ${this.nama}, Selamat Bermain`;
+            };
+
+            tidur(jam) {
+                this.energi += jam * 2;
+                return `Hallo ${this.nama}, Selamat Tidur`
+            };
+        }
+
+        const sandhika = new Mahasiswa("Sandhika", 10);
+
+    </script>
+    
+</body>
+</html>

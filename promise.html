@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+            Promise (janji)
+
+        -   Promise adalah sebuah object yang merepresentasikan keberhasilan / kegagalan sebuah 
+            event yang asynchronous yang akan terjadi di masa yang akan datang (future)
+        -   janji (terpenuhi / ingkar)
+        -   kalo di javascript janji disebut states (fullfield, rejected, pending)
+        -   callback (resolve, reject, finally)
+        -   aksi (then, catch, finally)
+        */
+
+        {
+            // contoh 1
+            const ditepati = true;
+            const janji1 = new Promise((resolve, reject) => {
+                if ( ditepati ) {
+                    resolve("Janji Telah Di Tepati");
+                } else {
+                    reject("Ingkar Janji");
+                };
+            });
+
+            janji1
+                .then((response) => console.log(`OK : ${response}`))
+                .catch((response) => console.log(`NOT OK : ${response}`));
+            
+        }
+
+        {
+            // contoh 2
+            const ditepati = true;
+            const janji2 = new Promise((resolve, reject) => {
+                if ( ditepati) {
+                    setTimeout(() => {
+                        resolve("Janji Di Tepati");
+                    }, 800);
+                } else {
+                    setTimeout(() => {
+                       reject("Tidak Di Tepati"); 
+                    }, 800);
+                };
+            });
+
+            console.log("mulai");
+            // console.log(janji2.then(() => console.log(janji2)));
+
+            janji2
+                .then((response) => console.log(`OK : ${response}`))
+                .catch((response) => console.log(`NOT OK : ${response}`))
+                .finally(() => console.log("Selesai Menunggu"));
+
+            console.log("tunggu");
+        }
+
+        {
+            // Promise all
+            const film = new Promise((resolve, reject) => {
+                if (true) {
+                    setTimeout(() => {
+                        resolve([
+                            {
+                                judul: "Avengers",
+                                sutradara: "Ridwan",
+                                pemeran: "Raka, Ryan"
+                            }
+                        ]);
+                    }, 3000);
+                } else {
+                    reject("Not Found");
+                };
+            });
+
+            const cuaca = new Promise((resolve, reject) => {
+                if (true) {
+                    setTimeout(() => {
+                        resolve([
+                            {
+                                kota: "Tangerang",
+                                temp: 27,
+                                kondisi: "Berawan"
+                            }
+                        ]);
+                    }, 1500);
+                } else {
+                    reject("Not Found");
+                };
+            });
+
+
+            Promise.all([
+                film
+                    .then((res) => console.log(res))
+                    .catch((err) => console.log(err)),
+                cuaca
+                    .then((res) => console.log(res))
+                    .catch((err) => console.log(err)),
+            ]);
+        }
+
+    </script>
+    
+</body>
+</html>

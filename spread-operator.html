@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread Operator</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: salmon;
+        }
+
+        .nama {
+            font-family: arial;
+            font-size: 80px;
+            color: white;
+            text-align: center;
+        }
+        
+        .nama span {
+            display: inline-block;
+            transition: .3s;
+            cursor: pointer;
+        }
+
+        .nama span:hover {
+            transform: scale(2) translateY(-20px);
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="nama">Ridwan Febnur AR</h1>
+
+    <ul>
+        <li>Sandhika</li>
+        <li>Doddy</li>
+        <li>Erick</li>
+    </ul>
+
+    <script>
+
+        // Spread Operator
+
+        {
+            // Menggabungkan 2 array
+            const person1 = ["Sandhika", "Doddy", "Erick"];
+            const person2 = ["Ade", "Edho", "Aji"];
+
+            const result = [...person1, "Eko", ...person2, "Bagas"]; //bisa menambahkan elemet array baru
+            const result2 = person1.concat(person2); // tidak bisa menambahkan elemet array baru
+
+            console.log(result);
+            console.log(result2);
+        }
+
+        {
+            // Meng-copy array
+            const person1 = ["Sandhika", "Doddy", "Erick"];
+
+            const person2 = [...person1];
+
+            person2[0] = "Bagas";
+            person2.push("Andi");
+
+            console.log(person1);
+            console.log(person2);
+        }
+        
+
+        {
+            const li = document.querySelectorAll("li");
+
+            const arr = [];
+            for (let i = 0; i < li.length; i++) {
+                arr.push(li[i].textContent);
+            }
+            console.log(arr);
+
+
+            const arr2 = [...li].map((arr) => arr.textContent);
+            console.log(arr2);
+        }
+
+
+        {
+            const nama = document.querySelector(".nama");
+            const huruf = [...nama.textContent].map((arr) => `<span>${arr}</span>`).join("");
+
+            nama.innerHTML = huruf;
+            
+        }
+
+    </script>
+    
+</body>
+</html>
